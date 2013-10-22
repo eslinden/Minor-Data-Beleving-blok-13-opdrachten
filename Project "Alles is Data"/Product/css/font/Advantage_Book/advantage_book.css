@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'AdvantageRegular';
+    src: url('advantage_book.eot');
+    src: url('advantage_book.eot') format('embedded-opentype'),
+         url('advantage_book.woff') format('woff'),
+         url('advantage_book.ttf') format('truetype'),
+         url('advantage_book.svg#AdvantageRegular') format('svg');
+}
