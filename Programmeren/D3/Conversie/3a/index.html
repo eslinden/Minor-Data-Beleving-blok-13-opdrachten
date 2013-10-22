@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Conversie 3a</title>
+    <script type="text/javascript" src="js/jquery1.9.0.min.js"></script>
+    <script type="text/javascript" src="js/d3.v3.min.js"></script>
+</head>
+
+<body>
+<style type="text/css">
+body{
+	font-family:Arial, Helvetica, sans-serif;
+	background:url(bg.jpg);
+}
+
+h3{
+	color:#411852;
+}
+
+.axis path{
+	fill: none;
+	stroke: #000;
+}
+</style>
+
+<h3>Hoeveel conversie is er in week 1 t/m 26 gemaakt en wat is de conversieratio?</h3>
+<div id="container"></div>
+
+<script>
+        
+		//CSV bestand aanroepen
+		d3.csv("dataset_target.csv", function(data) {
+			
+			var width = 600
+				height = 500;
+				
+			var canvas = d3.select("#container").append("svg")
+				.attr("width", width)
+				.attr("height", height)
+			
+			
+			var scaleX = d3.scale.linear()
+				.range([60, width-20])
+				.domain([0, 26]);
+				
+			var scaleY = d3.scale.linear()
+				.range([300, 0])
+				.domain([15000,8000]);
+				
+			var xAxis = d3.svg.axis()
+				.scale(scaleX)
+				.orient('bottom');
+				
+			var yAxis = d3.svg.axis()
+				.scale(scaleY)
+				.orient('left');
+				
+			canvas.append('g')
+				.attr("transform", "translate(0," + height-500 + ")")
+				.attr("class", "axis")
+				.call(xAxis);
+				
+			canvas.append('g')
+				.attr("class", "axis")
+				.attr("transform", "translate(60, 10)")
+				.call(yAxis);
+			
+			var group = canvas.append("g")
+				.attr("transform", "translate(60, 10)");
+				
+			var line = d3.svg.line()
+				.x(function (d) { return d.Weeknummer*20; })
+				.y(function (d) { return d.Conversies/20-400; });				
+				
+			group.selectAll("path")
+				.data([data])
+				.enter()
+					.append("path")
+					.attr("d", line)
+					.attr("fill", "none")
+					.attr("stroke", "#693173")
+					.attr("stroke-width", 6);
+					
+			//De cirkels creeren om alle dagen aan te geven.
+			var circles = canvas.selectAll('circle')
+				.data(data);
+				
+			circles.enter()
+				.append('circle')
+				//.attr("fill", "#E03838")
+				.attr("fill", function(d){
+						if (d.Conversies >= 11000 && d.ConversieRatio >= 10) return '#66CC49';
+						else return '#E03838';
+				})
+				.attr("cx", function (d, i) {return d.Weeknummer*20+60; })
+				.attr("cy", function (d, i) {return d.Conversies/20-392; })
+				.attr("r", 7)
+				
+				 .on("mouseover", function(d) {      
+					div.transition()        
+						.duration(200)      
+						.style("opacity", .9);      
+					div .html(formatTime(d.Conversies) + "<br/>"  + d.close)  
+						.style("left", (d3.event.pageX) + "px")     
+						.style("top", (d3.event.pageY - 28) + "px");    
+					})                  
+				.on("mouseout", function(d) {       
+					div.transition()        
+						.duration(500)      
+						.style("opacity", 0);});
+		})
+              
+</script>
+
+</body>
+</html>

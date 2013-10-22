@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Totaal moord en doodslag</title>
+    <script type="text/javascript" src="js/jquery1.9.0.min.js"></script>
+    <script type="text/javascript" src="js/d3.v3.min.js"></script>
+</head>
+
+<body>
+<style>
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size:12px;
+  background-color:#664035;
+  color:#F5EFED;
+}
+
+#diagrammen{
+	margin-left:-25px;
+}
+
+</style>
+<h1>Totaal moord en doodslag 2008, 2009, 2010 en 2011</h1>
+<div id="diagrammen">
+    <div id="diagram1"></div>
+    <div id="diagram2"></div>
+    <div id="diagram3"></div>
+    <div id="diagram4"></div>
+</div>
+
+<!-- <h1>Totaal moord en doodslag 2008, 2009, 2010 en 2011</h1>
+<h2>2008</h2>
+<div class="jaar2008">
+    <p>< 15</p>
+    <p>15 - 20</p>
+    <p>20 - 30</p>
+    <p>30 - 40</p>
+    <p>40 - 50</p>
+    <p>50 - 60</p>
+    <p>60 - 70</p>
+    <p>70 - 80</p>
+    <p>80 ></p>
+</div> -->
+	
+	<script>
+		
+		var datajaar2008 = [13, 2, 30, 34, 30, 23, 11, 3, 4];
+		var datajaar2009 = [15, 8, 22, 33, 24, 30, 13, 4, 5];
+		var datajaar2010 = [16, 7, 22, 30, 25, 17, 18, 6, 3];
+		var datajaar2011 = [12, 6, 30, 20, 31, 23, 15, 1, 5];
+		
+		function balken(container, dataset){
+			var width = 750;
+			var height = 275;
+			
+			var widthScale = d3.scale.linear()
+						.domain([0, 40])
+						.range([0, width]);
+			
+			var color = d3.scale.linear()
+						.domain([0,40])
+						.range(["yellow", "red"]);
+			
+			var axis = d3.svg.axis()
+						.scale(widthScale);
+	
+			var canvas = d3.select(container)
+						.append("svg")
+						.attr("width", width)
+						.attr("height", height)
+						.append("g")
+						.attr("transform", "translate(60,0)");
+					
+			var bars = canvas.selectAll("rect")
+						.data(dataset)
+						.enter()
+							.append("rect")
+							.attr("width", 0)
+							.attr("height", 20)
+							.attr("fill", function(d){return color (d)})
+							.attr("y", function(d, i){return i*24})
+							.transition()
+								.delay(200)
+								.duration(1500)
+								.attr("width", function(d){return d*19;})
+							;
+
+			var x = d3.scale.linear()
+	            .domain([0, d3.max(dataset)])
+	            .range([0, width-80]);
+	            
+	        var y = d3.scale.linear()
+	            .domain([0, d3.max(dataset)])
+	            .rangeRound([0, width]);
+
+			canvas.selectAll("text")
+				.data(dataset)
+				.enter()
+					.append("text")
+		                .text(function(d){ console.log(d); return d; })
+						.attr("x", function(d){return x(d);})
+						.attr("y", function(d, i){return (i*(24) + 14);});
+						
+			canvas.append("g")
+				.attr("transform", "translate(0, 220)")
+				.call(axis);
+							
+		}
+		
+		balken("#diagram1", datajaar2008);
+		balken("#diagram2", datajaar2009);
+		balken("#diagram3", datajaar2010);
+		balken("#diagram4", datajaar2011);
+	</script>
+
+</body>
+</html>

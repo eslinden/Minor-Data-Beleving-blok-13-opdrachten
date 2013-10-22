@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script type="text/javascript" src="js/jquery1.9.0.min.js"></script>
+    <script type="text/javascript" src="js/d3.v3.min.js"></script>
+<title>Koffie</title>
+</head>
+
+<body>
+
+<div class="buttons">
+    <div id="koffie"><a>Koffie</a></div>
+    <div id="espresso"><a>Espresso</a></div>
+    <div id="cappuccino"><a>Cappuccino</a></div>
+    <div id="warmechoco"><a>Warme Choco</a></div>
+    <div id="warmwater"><a>Warm water</a></div>
+    <div id="overig"><a>Overig</a></div>
+</div>
+<div id="donut"></div>
+
+<script type="text/javascript">
+	var data1 = {
+        left: {
+            koffie: 63, //koffie
+            espresso: 36, //espresso
+            cappuccino: 31, //cappuccino
+            warmechoco: 9,  //warme choco
+            warmwater: 0,  //warm water
+            overig: 9	 //overig
+        },
+        right: {
+            koffie: 134,
+            espresso: 88,
+            cappuccino: 31,
+            warmechoco: 4,
+            warmwater: 2,
+            overig: 20
+        }
+    };
+	
+	var data = dataKoffie; 
+	var dataKoffie = [data1.right.koffie, data1.left.koffie];
+	var dataEspresso = [data1.right.espresso, data1.left.espresso];
+	var dataCappuccino = [data1.right.cappuccino, data1.left.cappuccino];
+	var dataWarmechoco = [data1.right.warmechoco, data1.left.warmechoco];
+	var dataWarmwater = [data1.right.warmwater, data1.left.warmwater];
+	var dataOverig = [data1.right.overig, data1.left.overig];
+		
+	var w = 400,
+		h = 400,
+		r = 200,
+		ir = 100,
+		color = d3.scale.category20c().domain([22, 162]).range(["#3A9FDE", "#DE3A73"]),
+		donut = d3.layout.pie().sort(null),
+		arc = d3.svg.arc().innerRadius(ir).outerRadius(r);
+	
+	var svg = d3.select("#donut").append("svg:svg")
+		.attr("width", w)
+		.attr("height", h)
+		.append("svg:g")
+		.attr("transform", "translate(" + w / 2 + "," + h / 2 + ")");
+		
+	var arcs = svg.selectAll("path")
+		.data(donut(dataKoffie))
+		.enter().append("svg:path")
+		.attr("fill", function(d, i) { return color(i); })
+		.attr("d", arc)
+		.each(function(d) { this._current = d; }); 
+		
+	$("#koffie").click(function(){
+		if(data != dataKoffie) {
+			data = dataKoffie;
+			arcs = arcs.data(donut(data)); // recompute the angles and rebind the data
+			arcs.transition().duration(750).attrTween("d", arcTween); // redraw the arcs
+		}
+		else{
+		}
+	});
+
+	$("#espresso").click(function(){
+		if(data != dataEspresso) {
+			data = dataEspresso;
+			arcs = arcs.data(donut(data)); // recompute the angles and rebind the data
+			arcs.transition().duration(750).attrTween("d", arcTween); // redraw the arcs
+		}
+	});
+
+	$("#cappuccino").click(function(){
+		if(data != dataCappuccino) {
+			data = dataCappuccino;
+			arcs = arcs.data(donut(data)); // recompute the angles and rebind the data
+			arcs.transition().duration(750).attrTween("d", arcTween); // redraw the arcs
+		}
+	});
+
+	$("#warmechoco").click(function(){
+		if(data != dataWarmechoco) {
+			data = dataWarmechoco;
+			arcs = arcs.data(donut(data)); // recompute the angles and rebind the data
+			arcs.transition().duration(750).attrTween("d", arcTween); // redraw the arcs
+		}
+	});
+
+	$("#warmwater").click(function(){
+		if(data != dataWarmwater) {
+			data = dataWarmwater;
+			arcs = arcs.data(donut(data)); // recompute the angles and rebind the data
+			arcs.transition().duration(750).attrTween("d", arcTween); // redraw the arcs
+		}
+	});
+
+	$("#overig").click(function(){
+		if(data != dataOverig) {
+			data = dataOverig;
+			arcs = arcs.data(donut(data)); // recompute the angles and rebind the data
+			arcs.transition().duration(750).attrTween("d", arcTween); // redraw the arcs
+		}
+	});
+	
+		
+	/*$("a").click(function(){
+		/*var increasedvalue = data4[0];
+		var decreasedvalue = data4[1];
+		data4 = [];
+		increasedvalue += 10;
+		decreasedvalue -= 10;
+		data4.push(increasedvalue);
+		data4.push(decreasedvalue);*/
+	/*	data = data === dataEspresso ? dataKoffie : dataEspresso; // swap the data
+		arcs = arcs.data(donut(data)); // recompute the angles and rebind the data
+		arcs.transition().duration(750).attrTween("d", arcTween); // redraw the arcs
+	}); */
+	function arcTween(a) {
+		var i = d3.interpolate(this._current, a);
+		this._current = i(0);
+		return function(t) {
+		return arc(i(t));
+	};
+} 
+		
+</script>
+</body>
+</html>

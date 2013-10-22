@@ -1,0 +1,79 @@
+#achtergrond {
+	width: 1150px;
+	height: 702px;
+	margin: auto;
+	background-image: url(../img/achtergrond.png);
+	position: relative;
+	overflow: auto;
+}
+
+#titel {
+	width: 980px;
+	height: 180px;
+	background-image: url(../img/titel.png);
+	position: absolute;
+	top: 10px;
+	left: 165px;
+}
+
+#menu {
+	width: 165px;
+	height: 702px;
+	position: absolute;
+}
+
+#slider {
+	width: 985px;
+	height: 460px;
+	margin: 147px 165px;
+	position: absolute;
+}
+
+.button {
+	width: 165px;
+	height: 117px;
+	float: left;
+	opacity: 0.4;
+	cursor: pointer;
+}
+
+.button:hover, .button_active {
+	opacity: 0.9;
+}
+
+#button1 {
+	background-image: url(../img/buttonNoordamerika.png);
+}
+
+#button2 {
+	background-image: url(../img/buttonZuidamerika.png);
+}
+
+#button3 {
+	background-image: url(../img/buttonEuropa.png);
+}
+
+#button4 {
+	background-image: url(../img/buttonAfrika.png);
+}
+
+#button5 {
+	background-image: url(../img/buttonAzie.png);
+}
+
+#button6 {
+	background-image: url(../img/buttonOceanie.png);
+}
+
+.slider_div{
+	width: 980px;
+	height: 520px;
+	position: absolute;
+	left: 165px;
+	bottom: 0px;
+}
+
+.caroufredsel_wrapper{
+	width: 984px !important;
+	margin: 0px !important;
+}

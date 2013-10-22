@@ -1,0 +1,394 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body{
+	width:1150px;
+	/*background-color:#46492d;*/
+	background:url(../images/bg4.png);
+	min-height:809px;
+	margin:auto;
+	/*font-family: futura, Verdana, Geneva, sans-serif;*/
+	font-family: Advantage, Helvetica, Arial, sans-serif;
+	box-shadow: 0px 10px 40px #252718; /*#2E301E */
+	font-size:14px;
+}
+
+.container{
+}
+
+.container .top{
+	/*background:#7F8555;*/
+	padding:15px;
+	background:url(../images/header.png) no-repeat;
+	background-color:#0e0d12;
+}
+.container .top .logo{
+	float:right;
+	margin-top:-20px;
+}
+
+.container .terraNova{
+}
+
+.container .legenda{
+	/*background:#fbffff;*/
+	background:url(../images/tooltipbg.png);
+	opacity: 0.8;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	position:absolute;
+	height:209px;
+	width:220px;
+	padding:10px;
+	margin-left:890px;
+	margin-top:20px;
+}
+.container .legenda ul{
+	margin-top:7px;
+	margin-left:-25px;
+}
+.item{
+	margin-left:19px;
+}
+
+.container .tooltipnewbuildings{
+	position:absolute;
+	left:112px;
+	top:307px;
+	background:url(../images/tooltipbg.png); /*cfa65e*/
+	opacity: 0.8;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	padding:10px; 	min-height:85px;
+	width:190px;
+	font-size:14px;
+}
+.container .tooltiphome{
+	position:absolute;
+	left:347px;
+	top:273px;
+	background:url(../images/tooltipbg.png);
+	opacity: 0.8;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	padding:10px; 	min-height:85px;
+	width:190px;
+	font-size:14px;
+}
+.container .tooltipskyhome{
+	position:absolute;
+	left:328px;
+	top:325px;
+	background:url(../images/tooltipbg.png);
+	opacity: 0.8;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	padding:10px; 	min-height:85px;
+	width:190px;
+	font-size:14px;
+}
+.container .tooltipmarket{
+	position:absolute;
+	left:501px;
+	top:362px;
+	background:url(../images/tooltipbg.png);
+	opacity: 0.8;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	padding:10px; 	min-height:85px;
+	width:190px;
+	font-size:14px;
+}
+.container .tooltiplabatory{
+	position:absolute;
+	left:412px;
+	top:345px;
+	background:url(../images/tooltipbg.png);
+	opacity: 0.8;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	padding:10px; 	min-height:85px;
+	width:190px;
+	font-size:14px;
+}
+.container .tooltipinfirmary{
+	position:absolute;
+	left:479px;
+	top:314px;
+	background:url(../images/tooltipbg.png);
+	opacity: 0.8;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	padding:10px; 	min-height:85px;
+	width:190px;
+	font-size:14px;
+}
+.container .tooltipschool{
+	position:absolute;
+	left:308px;
+	top:374px;
+	background:url(../images/tooltipbg.png);
+	opacity: 0.8;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	padding:10px; 	min-height:85px;
+	width:190px;
+	font-size:14px;
+}
+.container .tooltipprobe{
+	position:absolute;
+	left:390px;
+	top:403px;
+	background:url(../images/tooltipbg.png);
+	opacity: 0.8;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	padding:10px; 	min-height:85px;
+	width:190px;
+	font-size:14px;
+}
+.container .tooltipboylansbar{
+	position:absolute;
+	left:881px;
+	top:403px;
+	background:url(../images/tooltipbg.png);
+	opacity: 0.8;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	padding:10px; 	min-height:85px;
+	width:190px;
+	font-size:14px;
+}
+.container .tooltiptaylorsoffice{
+	position:absolute;
+	left:641px;
+	top:218px;
+	background:url(../images/tooltipbg.png);
+	opacity: 0.8;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	padding:10px; 	min-height:85px;
+	width:190px;
+	font-size:14px;
+}
+.container .tooltipplein{
+	position:absolute;
+	left:561px;
+	top:393px;
+	background:url(../images/tooltipbg.png);
+	opacity: 0.8;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	padding:10px; 	min-height:85px;
+	width:190px;
+	font-size:14px;
+}
+.container .tooltipjungle{
+	position:absolute;
+	left:73px;
+	top:450px;
+	background:url(../images/tooltipbg.png);
+	opacity: 0.8;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	padding:10px; 	min-height:85px;
+	width:190px;
+	font-size:14px;
+}
+.container .tooltipdefenses{
+	position:absolute;
+	left:622px;
+	top:468px;
+	background:url(../images/tooltipbg.png);
+	opacity: 0.8;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	padding:10px; 	min-height:85px;
+	width:190px;
+	font-size:14px;
+}
+.container .tooltipfields{
+	position:absolute;
+	left:612px;
+	top:162px;
+	background:url(../images/tooltipbg.png);
+	opacity: 0.8;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	padding:10px; 	min-height:85px;
+	width:190px;
+	font-size:14px;
+}
+.container .tooltiptheeye{
+	position:absolute;
+	left:866px;
+	top:363px;
+	background:url(../images/tooltipbg.png);
+	opacity: 0.8;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	padding:10px; 	min-height:85px;
+	width:190px;
+	font-size:14px;
+}
+.container .tooltipthebrig{
+	position:absolute;
+	left:572px;
+	top:354px;
+	background:url(../images/tooltipbg.png);
+	opacity: 0.8;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	padding:10px; 	min-height:85px;
+	width:190px;
+	font-size:14px;
+}
+.container .tooltipgate{
+	position:absolute;
+	left:559px;
+	top:472px;
+	background:url(../images/tooltipbg.png);
+	opacity: 0.8;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	padding:10px; 	min-height:85px;
+	width:190px;
+	font-size:14px;
+}
+.container .tooltipappletree{
+	position:absolute;
+	left:403px;
+	top:181px;
+	background:url(../images/tooltipbg.png);
+	opacity: 0.8;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	padding:10px; 	min-height:85px;
+	width:190px;
+	font-size:14px;
+}
+.container .tooltipfence{
+	position:absolute;
+	left:220px;
+	top:450px;
+	background:url(../images/tooltipbg.png);
+	opacity: 0.8;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	padding:10px; 	min-height:85px;
+	width:190px;
+	font-size:14px;
+}
+
+.container .arrowright{
+	width: 0; 
+	height: 0; 
+	border-top: 10px solid transparent; 
+	border-left: 11px solid #fbffff; 
+	border-bottom: 10px solid transparent;
+	opacity:0.8;
+	position:absolute;
+	left:210px;
+	top:8px;
+}
+.container .arrowleft{
+	width: 0; 
+	height: 0; 
+	border-top: 10px solid transparent; 
+	border-right: 11px solid #fbffff; 
+	border-bottom: 10px solid transparent;
+	opacity:0.8;
+	position:absolute;
+	left:-11px;
+	top:8px;
+}
+.container .arrowbottom{
+	width: 0; 
+	height: 0; 
+	width: 0; 
+	height: 0;
+	border-left: 10px solid transparent; 
+	border-right: 10px solid transparent; 
+	border-top: 11px solid #fbffff; 
+	opacity:0.8;
+	position:absolute;
+	right:10px;
+	bottom:-11px;
+}
+.container .arrowup{
+	width: 0; 
+	height: 0; 
+	width: 0; 
+	height: 0;
+	border-left: 10px solid transparent; 
+	border-right: 10px solid transparent; 
+	border-bottom: 11px solid #fbffff; 
+	opacity:0.8;
+	position:absolute;
+	right:10px;
+	top:-11px;
+}
+.container .arrowup1{
+	width: 0; 
+	height: 0; 
+	width: 0; 
+	height: 0;
+	border-left: 10px solid transparent; 
+	border-right: 10px solid transparent; 
+	border-bottom: 11px solid #fbffff; 
+	opacity:0.8;
+	position:absolute;
+	right:36px;
+	top:-11px;
+}
+.container .arrowup2{
+	width: 0; 
+	height: 0; 
+	width: 0; 
+	height: 0;
+	border-left: 10px solid transparent; 
+	border-right: 10px solid transparent; 
+	border-bottom: 11px solid #fbffff; 
+	opacity:0.8;
+	position:absolute;
+	right:95px;
+	top:-11px;
+}
+
+.container .kop{
+	font-size:16px;
+	font-weight:bold;
+	margin-bottom:4px;
+}
+
+.container .footer{
+	/*background:#60653c;*/
+	background:#0e0d12;
+	color:#fff;
+	width:1140px;
+	position:fixed;
+	bottom:0px;
+	padding:5px;
+	font-size:11px;
+	text-align:center;
+}

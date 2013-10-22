@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Terra Nova Data Visualisatie</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script type="text/javascript" src="js/jquery1.9.0.min.js"></script>
+    <script type="text/javascript" src="js/d3.v3.min.js"></script>
+</head>
+
+<body>
+<script type="text/javascript">
+//function showdiv(id){
+//document.getElementById(id).style.display = "block";
+//}
+
+var _hidediv = null;
+function showdiv(id) {
+    if(_hidediv)
+        _hidediv();
+    var div = document.getElementById(id);
+    div.style.display = 'block';
+    _hidediv = function () { div.style.display = 'none'; };
+	if(id == 'test'){_hidediv = function () { div.style.display = 'none'; };};
+}
+</script>
+<div class="container">
+    <div class="top"><br /><br /><div class="test" style="color:#e0e7e9; text-align:center; margin-top:18px; font-size:16px;">Als de toekomst er slecht uitziet, is er nog maar een optie: terug naar het verleden. Verken Terra Nova nu!</div><!--<b>Terra Nova Data Visualisatie</b><br />
+    Bekijk de hightlights van ieder persoon uit de serie. Klik op de persoon om specifiek zijn/haar gebeurtenissen te zien.<!-- <div class="logo"><img src="images/TNlogo.png" /></div>--></div>
+    <div class="legenda">
+        <div class="kop">Personages</div>
+        <ul>
+            <li style="	background:url(images/taylor.png) no-repeat; list-style-type:none; margin-left:-15px;"><div class="item">Nathaniel Taylor</div></li>
+            <li style="	background:url(images/jim.png) no-repeat; list-style-type:none; margin-left:-15px;"><div class="item">Jim Shannon</div></li>
+            <li style="	background:url(images/elisabeth.png) no-repeat; list-style-type:none; margin-left:-15px;"><div class="item">Elisabeth Shannon</div></li>
+            <li style="	background:url(images/josh.png) no-repeat; list-style-type:none; margin-left:-15px;"><div class="item">Josh Shannon</div></li>
+            <li style="	background:url(images/maddy.png) no-repeat; list-style-type:none; margin-left:-15px;"><div class="item">Maddy Shannon</div></li>
+            <li style="	background:url(images/zoe.png) no-repeat; list-style-type:none; margin-left:-15px;"><div class="item">Zoe Shannon</div></li>
+            <li style="	background:url(images/sky.png) no-repeat; list-style-type:none; margin-left:-15px;"><div class="item">Sky Tate</div></li>
+            <li style="	background:url(images/mira.png) no-repeat; list-style-type:none; margin-left:-15px;"><div class="item">Mira</div></li>
+            <li style="	background:url(images/malcolm.png) no-repeat; list-style-type:none; margin-left:-15px;"><div class="item">Malclom Wallace</div></li>
+            <li style="	background:url(images/boylan.png) no-repeat; list-style-type:none; margin-left:-15px;"><div class="item">Tom Boylan</div></li>
+        </ul>
+    </div>
+    
+    <div class="terraNova" style="background:url(images/map.png);">
+    <img src="images/dots3.png" usemap="#Map" border="0" />
+      <map name="Map" id="Map">
+      <area shape="poly" coords="507,60,523,39,543,39,559,51,552,81,522,81" href="#" alt="appletree" onclick="showdiv('tooltipappletree');" />
+      <area shape="poly" coords="726,272,732,257,749,259,756,267,752,282,733,280" href="#" alt="thebrig" onclick="showdiv('tooltipthebrig');" />
+      <area shape="poly" coords="776,282,783,264,801,262,805,273,801,288,783,290" href="#" alt="theyey" onclick="showdiv('tooltiptheeye');" />
+        <area shape="poly" coords="738,238,775,226,814,241,815,263,786,280,761,280,716,269,715,263" href="#" alt="taylorsoffice" onclick="showdiv('tooltiptaylorsoffice');" />
+        <area shape="poly" coords="806,354,828,348,840,316,834,290,805,287,788,302,773,340,786,350" href="#" alt="boylansbar" onclick="showdiv('tooltipboylansbar');" />
+        <area shape="poly" coords="546,318,553,300,571,298,575,309,567,326,553,326" href="#" alt="probe" onclick="showdiv('tooltipprobe');" />
+        <area shape="poly" coords="436,288,487,267,504,272,511,290,464,321,437,316,430,298" href="#" alt="school" onclick="showdiv('tooltipschool');" />
+        <area shape="poly" coords="612,216,673,214,680,239,627,252,611,237" href="#" alt="infirmary" onclick="showdiv('tooltipinfirmary');" />
+        <area shape="poly" coords="543,251,588,236,612,248,611,266,563,283,544,277" href="#" alt="labatory" onclick="showdiv('tooltiplabatory');" />
+        <area shape="poly" coords="690,226,726,234,660,310,621,299" href="#" alt="market" onclick="showdiv('tooltipmarket');" />
+        <area shape="poly" coords="464,234,511,223,522,230,523,246,477,259,462,249" href="#" alt="skyshome" onclick="showdiv('tooltipskyhome');" />
+        <area shape="poly" coords="485,183,526,171,543,184,536,199,496,204,484,196" href="#" alt="home" onclick="showdiv('tooltiphome') " />
+        <area shape="poly" coords="242,162,368,230,365,245,298,266,270,256,273,230,222,231,210,221,216,196,200,175" href="#" alt="newbuildings" onclick="showdiv('tooltipnewbuilding');" />
+        <area shape="poly" coords="707,277,738,282,778,296,782,314,764,335,735,337,675,307" href="#" alt="plein" onclick="showdiv('tooltipplein');" />
+        <area shape="poly" coords="145,302,193,269,259,296,275,340,253,377,182,381,149,354" href="#" alt="jungle" onclick="showdiv('tooltipjungle');" />
+        <area shape="poly" coords="653,329,664,311,682,309,686,320,680,342,662,343" href="#" alt="defenses" onclick="showdiv('tooltipdefenses');" />
+      <area shape="poly" coords="523,376,533,360,551,358,560,369,554,395,538,397" href="#" alt="defenses" onclick="showdiv('tooltipdefenses');" />
+      <area shape="poly" coords="711,350,718,332,736,330,743,342,735,360,721,361" href="#" alt="defenses" onclick="showdiv('tooltipdefenses');" />
+      <area shape="poly" coords="711,29,732,14,774,20,784,53,751,71,712,59" href="#" alt="fields" onclick="showdiv('tooltipfields');" />
+      <area shape="poly" coords="665,355,683,336,701,334,711,345,710,376,680,376" href="#" alt="gate" onclick="showdiv('tooltipgate');" />
+      <area shape="poly" coords="326,329,344,310,362,308,372,319,371,350,341,350" href="#" alt="fence" onclick="showdiv('tooltipfence');" />
+        <area shape="rect" coords="0,0,1150,809" onclick="showdiv('bg');" id="bg" />
+      </map>
+        <div class="tooltipnewbuildings" id="tooltipnewbuilding" style="display:none;"><div class="arrowright"></div>
+            <div class="kop">New Buildings <img src="images/sky.png" /> <img src="images/jim.png" /></div>
+   	  Om contact te hebben met de Sixers, deed Sky (de spion) vanaf deze plek met licht communiceren. Jim ging op onderzoek uit, maar kwam Sky niet tegen.</div>
+    
+        <div class="tooltiphome" id="tooltiphome" style="display:none;"><div class="arrowright"></div>
+            <div class="kop">Huis van familie Shannon <img src="images/jim.png" /> <img src="images/elisabeth.png" /> <img src="images/josh.png" /> <img src="images/maddy.png" /> <img src="images/zoe.png" /></div>
+            Dit is het huis van Jim, Elisabeth, Josh, Maddy en Zoe. Ze wonen in het nieuwe woongebied.</div>
+    
+      <div class="tooltipskyhome" id="tooltipskyhome" style="display:none;"><div class="arrowright"></div>
+            <div class="kop">Skys huis <img src="images/sky.png" /></div>
+      Sky woont samen met Tasha, Max en Hunter. Sky's ouders zijn overleden. Ze verricht werk in de kolonie.</div>
+        
+        <div class="tooltipmarket" id="tooltipmarket" style="display:none;"><div class="arrowright"></div>
+            <div class="kop">Markt <img src="images/maddy.png" /> <img src="images/josh.png" /> <img src="images/sky.png" /></div>
+      De Markt is waar de kolonisten van Terra Nova eten, kleren en andere dageijkse objecten kunnen kopen. Dit wordt betaald met Terra's.<br /><br />Maddy doet hier vaak de boodschappen.<br /><br />Josh en Sky hebben elkaar op de markt ontmoet.</div>
+        
+        <div class="tooltiplabatory" id="tooltiplabatory" style="display:none;"><div class="arrowright"></div>
+            <div class="kop">Onderzoeks Lab <img src="images/malcolm.png" /> <img src="images/elisabeth.png" /></div>
+      Dr. Malcolm Wallace werkt hier. Onderzoek wordt gedaan naar ziektes, virussen, planten, dinosauriers en andere dingen.</div>
+    
+        <div class="tooltipinfirmary" id="tooltipinfirmary" style="display:none;"><div class="arrowright"></div>
+            <div class="kop">Ziekenhuis <img src="images/elisabeth.png" /> <img src="images/maddy.png" /> <img src="images/malcolm.png" /></div>
+      Het ziekenhuis is Terra Nova's medische centrum voor de gewonde en zieke kolonisten. Elisabeth Shannon werkt er.<br /><br />Maddy liep een dag mee met haar moeder, maar vond alle wonden maar niks.</div>
+    
+        <div class="tooltipschool" id="tooltipschool" style="display:none;"><div class="arrowright"></div>
+            <div class="kop">School <img src="images/maddy.png" /> <img src="images/josh.png" /> <img src="images/zoe.png" /></div>
+            De school waar Maddy, Josh en Zoe op zitten.</div>
+    
+        <div class="tooltipprobe" id="tooltipprobe" style="display:none;"><div class="arrowright"></div>
+            <div class="kop">Probe <img src="images/zoe.png" /> <img src="images/josh.png" /> <img src="images/maddy.png" /></div>
+      Nadat de wetenschappers in 2149 de breuk in de tijd vonden, was de volgende stap om een sonde ("probe") er naar te sturen. ZOE: Veel bewoners van Terra Nova hebben de stenen pilaar gesigneerd. Zoe ook. MADDY: "It's the probe! You know, the one they sent through when they first discovered the time fracture ... no one knew at first how far back the fracture went, or even where it led to. They sent this back with a beacon inside so that, you know, they could find it however many millions of years later. Only they never did. That's how they knew that they were dealing with a new time-stream."</div>
+    
+        <div class="tooltipboylansbar" id="tooltipboylansbar" style="display:none;"><div class="arrowleft"></div>
+            <div class="kop">Boylans Bar <img src="images/boylan.png" /> <img src="images/josh.png" /></div>
+      Tom Boylan is de eigenaar. De bewoners van Terra Nova komen hier om te drinken en te socialiseren. Bepaalde illegale praktijken, zoals gokken, vinden hier ook plaats. Josh Shannon werkt hier, om zijn vriendin Kara uit 2149 naar Terra Nova te laten komen.</div>
+    
+        <div class="tooltiptaylorsoffice" id="tooltiptaylorsoffice" style="display:none;"><div class="arrowbottom"></div>
+            <div class="kop">Command Base <img src="images/taylor.png" /> <img src="images/jim.png" /></div>
+      Het center van Terra Nova. De beveilging werkt vanuit dit gebouw, geleidt door Commander Taylor.</div>
+    
+        <div class="tooltipplein" id="tooltipplein" style="display:none;"><div class="arrowright"></div>
+            <div class="kop">Plein <img src="images/taylor.png" /> <img src="images/jim.png" /> <img src="images/mira.png" /></div>
+            Als er iets belangrijks wordt verteld aan alle bewoners van Terra Nova, gebeurt dat op dit plein. Ook als er een festival plaats vindt, bijvoorbeeld het Harvest Festival, gebeurt dat hier.<br /><br />Nadat de Sixers en Taylor zijn ontvlucht aan een Carnotaurus komen ze op het plein terecht. Mira stelt een ruil voor.</div>
+
+      <div class="tooltipjungle" id="tooltipjungle" style="display:none;"><div class="arrowup"></div>
+            <div class="kop">Jungle <img src="images/mira.png" /> <img src="images/taylor.png" /> <img src="images/jim.png" /></div>
+            Er gebeurt veel OTG ("Outside The Gate").<br />
+            <b>Sixers</b><br />De Sixers (vijanden uit de zesde pelgrimstocht) schuilen in de jungle.<br />
+            <b>Outpost 3</b><br />Deze Outpost is een wetenschappelijk onderzoeks centrum. Het hoofd creeerde per ongeluk een virus, dat geheugenverlies veroorzaakt.<br />
+      <b>Stenen bij de watervallen</b>Teken en berekeningen zijn gegeraveerd in de stenen. Wie heeft dit gedaan? Waarom wordt dit geheim gehouden?</div>
+
+      <div class="tooltipdefenses" id="tooltipdefenses" style="display:none;"><div class="arrowleft"></div><div class="arrowup1"></div><div class="arrowup2"></div>
+            <div class="kop">Beveiliging <img src="images/taylor.png" /> <img src="images/mira.png" /> <img src="images/jim.png" /></div>
+      De kolonie is omringd door een massief hek, met posten met sonic kanonnen bemand door het Beveiligingsteam.</div>
+
+      <div class="tooltipfields" id="tooltipfields" style="display:none;"><div class="arrowup"></div>
+            <div class="kop">Landbouw Velden</div>
+      Groot grondgebied binnen Terra Nova waar verschillende gewassen worden gemaakt.</div>
+
+      <div class="tooltiptheeye" id="tooltiptheeye" style="display:none;"><div class="arrowleft"></div>
+            <div class="kop">The Eye <img src="images/jim.png" /> <img src="images/zoe.png" /></div>
+      "The Eye" is een holografische simulator. Het kan alle geschiedenis laten zien. Jim nam Zoe hier naartoe als verrassing.</div>
+
+      <div class="tooltipthebrig" id="tooltipthebrig" style="display:none;"><div class="arrowright"></div>
+            <div class="kop">The Brig <img src="images/taylor.png" /> <img src="images/jim.png" /></div>
+      De plek waar gegijzelden en gevangenen tijdelijk worden gehouden.<br /><br />Jim heeft hiet gevangen gezeten, toen men dacht dat hij de spion was.</div>
+
+      <div class="tooltipgate" id="tooltipgate" style="display:none;"><div class="arrowup"></div>
+            <div class="kop">The Gate <img src="images/taylor.png" /> <img src="images/mira.png" /></div>
+      Zonder toestemming mag je niet zomaar OTG ("Outside The Gate").<br /><br />Mira kwam hier om een gegijzelde van hun te ruilen met gegijzelden van het Beveiligingsteam.</div>
+
+      <div class="tooltipappletree" id="tooltipappletree" style="display:none;"><div class="arrowup"></div>
+            <div class="kop">Bij de appelbomen <img src="images/maddy.png" /></div>
+      Toen Maddy iemand erop verdachte van identiteitsdiefstal, kon diezelfde man niet riskeren dat de waarheid zou worden onthuld. Hier probeerde hij Maddy om te leggen door gebruik te maken van een dodelijke spin.</div>
+      
+      <div class="tooltipfence" id="tooltipfence" style="display:none;"><div class="arrowup"></div>
+            <div class="kop">Gat in het hek <img src="images/sky.png" /><img src="images/josh.png" /></div>
+      In het hek zit een gat groot genoeg om net doorheen te kunnen. Van deze mogelijkheid heeft vooral Sky maar ook Josh gebruik gemaakt om OTG ("Outside The Gate") te komen.</div>
+    
+    
+  </div>
+    
+    <div class="footer">
+    Bron: <a href="http://terranova.wikia.com" target="_blank" style="text-decoration:none; color:#fff;">terranova.wikia.com</a><br />
+    &copy; Emma van der Linden - Gemaakt tijdens de Minor Data Beleving op Avans Hogeschool 2013/2014
+    </div>
+</div>
+</body>
+</html>
